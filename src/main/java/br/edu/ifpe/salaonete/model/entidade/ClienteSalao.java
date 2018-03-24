@@ -21,6 +21,7 @@ public class ClienteSalao {
     private int id;
     private String nome;
     private long cnpj;
+    private Endereco endereco;
     private String login;
     private String senha;
 
