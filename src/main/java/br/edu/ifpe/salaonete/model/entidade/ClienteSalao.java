@@ -25,6 +25,9 @@ public class ClienteSalao {
     private String login;
     private String senha;
 
+    public ClienteSalao() {
+    }
+    
     public ClienteSalao(String nome, long cnpj, String login, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
