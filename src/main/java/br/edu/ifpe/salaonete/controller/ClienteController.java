@@ -5,8 +5,8 @@
  */
 package br.edu.ifpe.salaonete.controller;
 
-import br.edu.ifpe.salaonete.model.entidade.ClienteSalao;
-import br.edu.ifpe.salaonete.model.negocio.ClienteModel;
+import br.edu.ifpe.salaonete.model.entidade.Salao;
+import br.edu.ifpe.salaonete.model.negocio.SalaoModel;
 
 /**
  *
@@ -14,12 +14,12 @@ import br.edu.ifpe.salaonete.model.negocio.ClienteModel;
  */
 public class ClienteController {
     
-    private final ClienteModel clienteModel;
-    private ClienteSalao cliente;
+    private final SalaoModel clienteModel;
+    private Salao cliente;
     
     public ClienteController(){
-        this.clienteModel = new ClienteModel();
-        this.cliente = new ClienteSalao();
+        this.clienteModel = new SalaoModel();
+        this.cliente = new Salao();
     }
     
 }

@@ -23,7 +23,7 @@ public class ServicosModel {
     }
     
     public void cadastrar(Servicos servicos){
-        if(((ServicosHibernateDao)dao).recuperar(servicos.getId())==null){
+        if(((ServicosHibernateDao)dao).recuperar(servicos.getId_servico())==null){
             this.dao.inserir(servicos);
         }
     }
@@ -36,13 +36,13 @@ public class ServicosModel {
     }
     
     public void alterar(Servicos servicos){
-        if(((ServicosHibernateDao)dao).recuperar(servicos.getId())!=null){
+        if(((ServicosHibernateDao)dao).recuperar(servicos.getId_servico())!=null){
             this.dao.alterar(servicos);
         }
     }
     
     public void deletar(Servicos servicos){
-        if(((ServicosHibernateDao)dao).recuperar(servicos.getId())!=null){
+        if(((ServicosHibernateDao)dao).recuperar(servicos.getId_servico())!=null){
             this.dao.deletar(servicos);
         }
     }

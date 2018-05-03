@@ -14,5 +14,6 @@ import br.edu.ifpe.salaonete.model.entidade.Usuario;
 public interface UsuarioDAO extends DAO<Usuario>{
     
     public void recuperarCPF(long cpf);
+    boolean login(String login,String senha);
     
 }

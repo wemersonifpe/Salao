@@ -23,7 +23,7 @@ public class UsuarioModel {
     }
     
     public void cadastrar(Usuario usuario){
-        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId())==null){
+        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId_usuario())==null){
             this.dao.inserir(usuario);
         }
     }
@@ -36,13 +36,13 @@ public class UsuarioModel {
     }
     
     public void alterar(Usuario usuario){
-        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId())!=null){
+        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId_usuario())!=null){
             this.dao.alterar(usuario);
         }
     }
     
     public void deletar(Usuario usuario){
-        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId())!=null){
+        if(((UsuarioHibernateDao)dao).recuperar(usuario.getId_usuario())!=null){
             this.dao.deletar(usuario);
         }
     }

@@ -46,7 +46,11 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/SalaoNet</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">2001wds</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <!--<property name="hibernate.hbm2ddl.auto">update</property-->
     <mapping class="br.edu.ifpe.salaonete.model.entidade.Usuario"/>
+    <mapping class="br.edu.ifpe.salaonete.model.entidade.Servicos"/>
+    <mapping class="br.edu.ifpe.salaonete.model.entidade.Salao"/>
+    <mapping class="br.edu.ifpe.salaonete.model.entidade.Agenda"/>
+    <mapping class="br.edu.ifpe.salaonete.model.entidade.AgendaServicos"/>
   </session-factory>
 </hibernate-configuration>

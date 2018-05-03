@@ -5,10 +5,13 @@
  */
 package br.edu.ifpe.salaonete.model.entidade;
 
+import javax.persistence.Embeddable;
+
 /**
  *
  * @author wemerson
  */
+@Embeddable
 public class Endereco {
     
     private int numero;

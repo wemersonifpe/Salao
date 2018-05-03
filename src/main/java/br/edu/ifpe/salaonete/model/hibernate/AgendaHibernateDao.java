@@ -70,8 +70,8 @@ public class AgendaHibernateDao implements AgendaDAO{
         Agenda agenda = null;
         
         try{
-            Query consulta = session.createQuery("SELECT ageenda FROM Agenda agenda WHERE agenda.id = :id");
-            consulta.setInteger("id", codigo);
+            Query consulta = session.createQuery("SELECT ageenda FROM Agenda agenda WHERE agenda.id_agenda = :id_agenda");
+            consulta.setInteger("id_agenda", codigo);
             agenda = (Agenda) consulta.uniqueResult();
         }catch(RuntimeException e){
             throw e;

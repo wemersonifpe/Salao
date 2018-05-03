@@ -23,7 +23,7 @@ public class AgendaModel {
     }
     
     public void cadastrar(Agenda agenda){
-        if(((AgendaHibernateDao)dao).recuperar(agenda.getId())==null){
+        if(((AgendaHibernateDao)dao).recuperar(agenda.getId_agenda())==null){
             this.dao.inserir(agenda);
         }
     }
@@ -36,13 +36,13 @@ public class AgendaModel {
     }
     
     public void alterar(Agenda agenda){
-        if(((AgendaHibernateDao)dao).recuperar(agenda.getId())!=null){
+        if(((AgendaHibernateDao)dao).recuperar(agenda.getId_agenda())!=null){
             this.dao.alterar(agenda);
         }
     }
     
     public void deletar(Agenda agenda){
-        if(((AgendaHibernateDao)dao).recuperar(agenda.getId())!=null){
+        if(((AgendaHibernateDao)dao).recuperar(agenda.getId_agenda())!=null){
             this.dao.deletar(agenda);
         }
     }

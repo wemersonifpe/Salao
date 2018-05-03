@@ -6,7 +6,11 @@
 package br.edu.ifpe.salaonete.view;
 
 import br.edu.ifpe.salaonete.controller.UsuarioController;
+import br.edu.ifpe.salaonete.model.entidade.Agenda;
 import br.edu.ifpe.salaonete.model.entidade.Usuario;
+import br.edu.ifpe.salaonete.model.hibernate.AgendaHibernateDao;
+import br.edu.ifpe.salaonete.model.hibernate.UsuarioHibernateDao;
+import java.util.Date;
 
 /**
  *
@@ -15,11 +19,17 @@ import br.edu.ifpe.salaonete.model.entidade.Usuario;
 public class teste {
     public static void main(String[] args) {
         
-        UsuarioController lh =new UsuarioController();
+        UsuarioHibernateDao lh = new UsuarioHibernateDao();
         
-        Usuario usu = new Usuario("Wemerson Diogenes", 123456, "wemerson@gmail.com", "2001wds");
-        usu.setId(4);
-        lh.alterar(usu);
+        Usuario usu = new Usuario();
+        usu.setCpf(123);
+        usu.setNome("wemerson");
+       
+        
+        AgendaHibernateDao a = new AgendaHibernateDao();
+        Agenda as = new Agenda();
+        as.setUsuarios(usu);
+
     }
     
 }

@@ -10,46 +10,46 @@
     <h:body>
         <ui:include src="index.xhtml"/>
         
-        <h:form id="formCadFuncionario">
+        <h:form id="formCadUsuario">
             <p:growl life="4000" showDetail="true" showSummary="true" sticky="true"/>
             
-            <p:fieldset id="fieldCad" legend="Cadastro de Funcionario">
+            <p:fieldset id="fieldCad" legend="Cadastro de Usuario">
                 <p:panelGrid columns="3">
                     <h:outputText value="CPF*:"/>
-                    <p:inputText id="txtCPF" value="#{funcionarioBean.cadastrarFuncionario.cpf}" required="true"
+                    <p:inputText id="txtCPF" value="#{usuarioController.cadUsuario.cpf}" required="true"
                                  requiredMessage="Seu fresco! tá faltando o CPF"/>
                     <p:message for="txtCPF"/>
                     
                     <h:outputText value="Nome*:"/>
-                    <p:inputText id="txtNome" value="#{funcionarioBean.cadastrarFuncionario.nome}" required="true"
+                    <p:inputText id="txtNome" value="#{usuarioController.cadUsuario.nome}" required="true"
                                  requiredMessage="Ta faltando o nome"/>
                     <p:message for="txtNome"/>
                     
                     <h:outputText value="Login*:"/>
-                    <p:inputText id="txtLogin" value="#{funcionarioBean.cadastrarFuncionario.login}" required="true"
+                    <p:inputText id="txtLogin" value="#{usuarioController.cadUsuario.login}" required="true"
                                  requiredMessage="Ta faltando o login"/>
                     <p:message for="txtLogin"/>
                     
                     <h:outputText value="Senha*:"/>
-                    <p:inputText id="txtSenha" value="#{funcionarioBean.cadastrarFuncionario.senha}" required="true"
+                    <p:inputText id="txtSenha" value="#{usuarioController.cadUsuario.senha}" required="true"
                                  requiredMessage="Ta faltando o nome"/>
                     <p:message for="txtSenha"/>
                     
                 </p:panelGrid>
                 
                 <p:commandButton value="cadastrar" 
-                                 oncomplete="PF('widDialConfirmCadFuncionario').show()"/>
+                                 oncomplete="PF('widDialConfirmCadUsuario').show()"/>
             </p:fieldset>
             
             <p:messages/>
             
-            <p:dialog id="dialConfirmCadFuncionario" visible="false" resizable="false"
-                      modal="true" widgetVar="widDialConfirmCadFuncionario" header="atenção!">
+            <p:dialog id="dialConfirmCadUsuario" visible="false" resizable="false"
+                      modal="true" widgetVar="widDialConfirmCadUsuario" header="atenção!">
                 
-                <h:outputText value="Deseja realmente cadastrar o funcionario?"/><br/>
-                <p:commandButton value="sim" action="#{funcionarioBean.adicionarFuncionarioAction()}"
-                                 update=":formCadFuncionario" oncomplete="PF('widDialConfirmCadFuncionario').hide();" />
-                <p:commandButton value="não" oncomplete="PF('widDialConfirmCadFuncionario').hide()"/>
+                <h:outputText value="Deseja realmente cadastrar o usuario?"/><br/>
+                <p:commandButton value="sim" action="#{usuarioController.cadastrar()}"
+                                 update=":formCadUsuario" oncomplete="PF('widDialConfirmCadUsuario').hide();" />
+                <p:commandButton value="não" oncomplete="PF('widDialConfirmCadUsuario').hide()"/>
                 
             </p:dialog>
         </h:form>

@@ -70,8 +70,8 @@ public class ServicosHibernateDao implements ServicosDAO{
         Servicos servico = null;
         
         try{
-            Query consulta = session.createQuery("SELECT servico FROM Servicos servico WHERE servico.id = :id");
-            consulta.setInteger("id", codigo);
+            Query consulta = session.createQuery("SELECT servico FROM Servicos servico WHERE servico.id_servico = :id_servico");
+            consulta.setInteger("id_servico", codigo);
             servico = (Servicos) consulta.uniqueResult();
         }catch(RuntimeException e){
             throw e;

@@ -5,6 +5,8 @@
  */
 package br.edu.ifpe.salaonete.model.entidade;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,19 +16,23 @@ import javax.persistence.Id;
  * @author wemerson
  */
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
     
     @Id
     @GeneratedValue
-    private int id;
-    private String nome;
+    private int id_usuario;
+    @Column(length = 11)
     private long cpf;
+    @Column(length = 50, nullable = false)
+    private String nome;
+    @Column(length = 30)
     private String login;
+    @Column(length = 10)
     private String senha;
 
-    public Usuario(String nome, long cpf, String login, String senha) {
-        this.nome = nome;
+    public Usuario(long cpf, String nome, String login, String senha) {
         this.cpf = cpf;
+        this.nome = nome;
         this.login = login;
         this.senha = senha;
     }
@@ -34,12 +40,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public int getId() {
-        return id;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNome() {

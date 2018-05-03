@@ -75,8 +75,8 @@ public class UsuarioHibernateDao implements UsuarioDAO{
         Usuario usuario = null;
         
         try{
-            Query consulta = session.createQuery("SELECT usuario FROM Usuario usuario WHERE usuario.id = :id");
-            consulta.setInteger("id", codigo);
+            Query consulta = session.createQuery("SELECT usuario FROM Usuario usuario WHERE usuario.id_usuario = :id_usuario");
+            consulta.setInteger("id_usuario", codigo);
             usuario = (Usuario) consulta.uniqueResult();
         }catch(RuntimeException e){
             throw e;
@@ -118,6 +118,11 @@ public class UsuarioHibernateDao implements UsuarioDAO{
             session.close();
         }
         return usuarios;
+    }
+
+    @Override
+    public boolean login(String login, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

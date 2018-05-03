@@ -5,25 +5,39 @@
  */
 package br.edu.ifpe.salaonete.model.entidade;
 
+import java.io.Serializable;
 import java.sql.Time;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author wemerson
  */
 @Entity
-public class Servicos {
+public class Servicos implements Serializable {
     
     @Id
     @GeneratedValue
-    private int id;
+    private int id_servico;
+    @ManyToOne
+    @JoinColumn(name = "cod_salao", referencedColumnName = "id_salao", nullable = false)
+    private Salao salao;
+    @Column(length = 30)
     private String nome;
-    private double valor;
+    @Column(length = 100)
     private String descriocao;
+    @Column
+    private double valor;
     private Time duracao;
+
+    public Servicos() {
+        this.salao = new Salao();
+    }
 
     public Servicos(String nome, double valor, String descriocao, Time duracao) {
         this.nome = nome;
@@ -32,14 +46,22 @@ public class Servicos {
         this.duracao = duracao;
     }
 
-    public int getId() {
-        return id;
+    public int getId_servico() {
+        return id_servico;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_servico(int id_servico) {
+        this.id_servico = id_servico;
     }
 
+    public Salao getSalao() {
+        return salao;
+    }
+
+    public void setSalao(Salao salao) {
+        this.salao = salao;
+    }
+    
     public String getNome() {
         return nome;
     }

@@ -21,7 +21,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class UsuarioController {
     
-    private final UsuarioModel usuarioModel;
+    private UsuarioModel usuarioModel;
     private Usuario cadUsuario;
     
     public UsuarioController(){
@@ -29,10 +29,11 @@ public class UsuarioController {
         this.cadUsuario = new Usuario();
     }
     
-    public String cadastrar(Usuario usuario){
-        this.usuarioModel.cadastrar(usuario);
+    public void cadastrar(){
+        this.usuarioModel.cadastrar(this.cadUsuario);
 //        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario cadastrado com sucesso"));
-        return "index.xhtml";
+        this.cadUsuario = new Usuario();
+        //return "index.xhtml";
         
     }
     
@@ -50,6 +51,22 @@ public class UsuarioController {
     
     public List<Usuario> recuperarTodos(){
         return this.usuarioModel.recuperarTodos();
+    }
+
+    public UsuarioModel getUsuarioModel() {
+        return usuarioModel;
+    }
+
+    public void setUsuarioModel(UsuarioModel usuarioModel) {
+        this.usuarioModel = usuarioModel;
+    }
+
+    public Usuario getCadUsuario() {
+        return cadUsuario;
+    }
+
+    public void setCadUsuario(Usuario cadUsuario) {
+        this.cadUsuario = cadUsuario;
     }
     
 }
