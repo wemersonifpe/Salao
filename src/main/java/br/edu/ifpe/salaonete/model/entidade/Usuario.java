@@ -6,9 +6,11 @@
 package br.edu.ifpe.salaonete.model.entidade;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -19,7 +21,7 @@ import javax.persistence.Id;
 public class Usuario implements Serializable {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_usuario;
     @Column(length = 11)
     private long cpf;
@@ -79,7 +81,51 @@ public class Usuario implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + this.id_usuario;
+        hash = 89 * hash + (int) (this.cpf ^ (this.cpf >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.nome);
+        hash = 89 * hash + Objects.hashCode(this.login);
+        hash = 89 * hash + Objects.hashCode(this.senha);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (this.id_usuario != other.id_usuario) {
+            return false;
+        }
+        if (this.cpf != other.cpf) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+        if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id_usuario=" + id_usuario + ", cpf=" + cpf + ", nome=" + nome + ", login=" + login + ", senha=" + senha + '}';
+    } 
     
 }

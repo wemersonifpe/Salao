@@ -13,7 +13,7 @@ import br.edu.ifpe.salaonete.model.entidade.Salao;
  */
 public interface SalaoDAO extends DAO<Salao>{
     
-    public void recuperarCNPJ(long cnpj);
+    public Salao recuperarCNPJ(long cnpj);
     boolean login(String login,String senha);
     
 }

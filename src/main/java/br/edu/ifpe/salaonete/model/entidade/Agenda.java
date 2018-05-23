@@ -6,11 +6,11 @@
 package br.edu.ifpe.salaonete.model.entidade;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,7 +24,7 @@ import javax.persistence.Temporal;
 public class Agenda implements Serializable {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_agenda;
     @ManyToOne
     @JoinColumn(name = "cod_usuario", referencedColumnName = "id_usuario", nullable = false)
@@ -34,13 +34,19 @@ public class Agenda implements Serializable {
     private Date data;
     @Column(name = "horario")
     @Temporal(javax.persistence.TemporalType.TIME)
-    private Time horario;
+    private Date horario;
 
     public Agenda() {
         this.usuarios = new Usuario();
     }
 
-    public Agenda(Date data, Time horario) {
+    public Agenda(Date data, Date horario) {
+        this.data = data;
+        this.horario = horario;
+    }
+
+    public Agenda(Usuario usuarios, Date data, Date horario) {
+        this.usuarios = usuarios;
         this.data = data;
         this.horario = horario;
     }
@@ -69,13 +75,15 @@ public class Agenda implements Serializable {
         this.data = data;
     }
 
-    public Time getHorario() {
+    public Date getHorario() {
         return horario;
     }
 
-    public void setHorario(Time horario) {
+    public void setHorario(Date horario) {
         this.horario = horario;
     }
+
+    
     
     
 }

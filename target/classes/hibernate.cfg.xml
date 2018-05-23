@@ -48,6 +48,7 @@ Contributor(s):
     <property name="hibernate.connection.password">2001wds</property>
     <!--<property name="hibernate.hbm2ddl.auto">update</property-->
     <mapping class="br.edu.ifpe.salaonete.model.entidade.Usuario"/>
+    <mapping class="br.edu.ifpe.salaonete.model.entidade.Endereco"/>
     <mapping class="br.edu.ifpe.salaonete.model.entidade.Servicos"/>
     <mapping class="br.edu.ifpe.salaonete.model.entidade.Salao"/>
     <mapping class="br.edu.ifpe.salaonete.model.entidade.Agenda"/>

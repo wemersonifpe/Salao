@@ -29,11 +29,6 @@ public class SalaoHibernateDao implements SalaoDAO{
     }
 
     @Override
-    public void recuperarCNPJ(long cnpj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void inserir(Salao salao) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;
@@ -125,4 +120,16 @@ public class SalaoHibernateDao implements SalaoDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    //MELHORAR O ESSE METODO
+    public Salao recuperarCNPJ(long cnpj) {
+        List<Salao> saloes = this.recuperarTodos();
+        
+        for(Salao salao : saloes){
+            if(salao.equals(cnpj)){
+                return salao;
+            }
+        }
+        return null;
+    }
 }

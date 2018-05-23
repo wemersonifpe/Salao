@@ -50,4 +50,11 @@ public class UsuarioModel {
     public List<Usuario> recuperarTodos(){
         return ((UsuarioHibernateDao)dao).recuperarTodos();
     }
+    
+    public boolean login(String login, String senha){
+        if(login == null || senha == null){
+            return false;
+        }
+        return ((UsuarioHibernateDao)dao).login(login, senha);
+    }
 }

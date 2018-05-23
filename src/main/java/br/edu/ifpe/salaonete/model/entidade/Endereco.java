@@ -5,6 +5,8 @@
  */
 package br.edu.ifpe.salaonete.model.entidade;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
@@ -12,21 +14,25 @@ import javax.persistence.Embeddable;
  * @author wemerson
  */
 @Embeddable
-public class Endereco {
+public class Endereco implements Serializable {
     
+    @Column
     private int numero;
+    @Column(length = 30)
     private String rua;
+    @Column(length = 30)
     private String bairro;
-    private String cidaded;
+    @Column(length = 30)
+    private String cidade;
 
     public Endereco() {
     }
 
-    public Endereco(int numero, String rua, String bairro, String cidaded) {
+    public Endereco(int numero, String rua, String bairro, String cidade) {
         this.numero = numero;
         this.rua = rua;
         this.bairro = bairro;
-        this.cidaded = cidaded;
+        this.cidade = cidade;
     }
 
     public int getNumero() {
@@ -53,12 +59,12 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public String getCidaded() {
-        return cidaded;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setCidaded(String cidaded) {
-        this.cidaded = cidaded;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
     
 }

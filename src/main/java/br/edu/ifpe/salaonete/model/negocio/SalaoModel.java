@@ -35,6 +35,13 @@ public class SalaoModel {
         return ((SalaoHibernateDao)dao).recuperar(codigo);
     }
     
+    public Salao recuperarCnpj(Long cnpj){
+        if(cnpj == null){
+            return null;
+        }
+        return ((SalaoHibernateDao)dao).recuperarCNPJ(cnpj);
+    }
+    
     public void alterar(Salao salao){
         if(((SalaoHibernateDao)dao).recuperar(salao.getId_salao()) != null){
             this.dao.alterar(salao);

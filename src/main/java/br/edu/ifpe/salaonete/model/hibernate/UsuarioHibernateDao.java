@@ -122,7 +122,16 @@ public class UsuarioHibernateDao implements UsuarioDAO{
 
     @Override
     public boolean login(String login, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Usuario> usuarios = this.recuperarTodos();
+        
+        for(Usuario usu : usuarios){
+            if(usu.getLogin().equals(login)){
+                if(usu.getSenha().equals(senha)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
 }
