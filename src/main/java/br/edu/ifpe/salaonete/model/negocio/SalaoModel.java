@@ -57,4 +57,11 @@ public class SalaoModel {
     public List<Salao> recuperarTodos(){
         return ((SalaoHibernateDao)dao).recuperarTodos();
     }
+    
+    public boolean login(String login, String senha){
+        if(login == null || senha == null){
+            return false;
+        }
+        return ((SalaoHibernateDao)dao).login(login, senha);
+    }
 }

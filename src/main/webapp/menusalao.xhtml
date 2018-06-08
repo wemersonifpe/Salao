@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Salão</title>
+    </h:head>
+    <h:body>
+        <c:if test="${loginSalao.salaoLogado == null}">
+            <script>location.href = "loginsalao.xhtml";</script>
+        </c:if>
+        <h:form id="formMenusal">
+            <div class="header">
+                <h2 style="padding-top: 2%; height: 10%; text-align: center; vertical-align: middle; width: 100%;">ESPAÇO HEAR</h2>
+            </div>
+            <div style="padding: 15%; padding-top: 2%; margin-bottom: -15%">
+            <p:menubar style="background: #33ff99">
+                <p:menuitem value="Home" url="index.xhtml"/> 
+                <p:menuitem value="Alterar Cadastro"/>
+                <p:menuitem value="Visualizar Agendamento"/>
+                <p:menuitem value="Cadastrar Serviços"/>
+                <p:menuitem value="Visualizar Serviços"/>
+                <p:menuitem value="Sair" url="loginsalao.xhtml" action="#{loginSalao.logout()}"/>
+            </p:menubar>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

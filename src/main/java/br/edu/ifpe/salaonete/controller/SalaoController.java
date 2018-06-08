@@ -28,9 +28,8 @@ public class SalaoController {
         this.salao = new Salao();
     }
     
-    public void cadastrar(Endereco end){
-        this.salao.setEndereco(end);
-        this.salaoNegocio.cadastrar(salao);
+    public void cadastrar(){
+        this.salaoNegocio.cadastrar(this.salao);
         this.salao = new Salao();
     }
     
@@ -51,8 +50,12 @@ public class SalaoController {
         this.salaoNegocio.deletar(salao);
     }
     
-    public List<Salao> recuperarTodos(){
+    public List<Salao> listarAction(){
         return this.salaoNegocio.recuperarTodos();
+    }
+    
+    public boolean login(String login,String senha) {
+       return this.salaoNegocio.login(login, senha);
     }
 
     public SalaoModel getSalaoNegocio() {

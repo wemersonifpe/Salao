@@ -49,8 +49,12 @@ public class UsuarioController {
         return "index.xhtml";
     }
     
-    public List<Usuario> recuperarTodos(){
+    public List<Usuario> listarAction(){
         return this.usuarioModel.recuperarTodos();
+    }
+    
+    public boolean login(String login,String senha) {
+       return this.usuarioModel.login(login, senha);
     }
 
     public UsuarioModel getUsuarioModel() {

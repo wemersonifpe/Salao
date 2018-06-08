@@ -29,6 +29,9 @@ public class Agenda implements Serializable {
     @ManyToOne
     @JoinColumn(name = "cod_usuario", referencedColumnName = "id_usuario", nullable = false)
     private Usuario usuarios;
+    @ManyToOne
+    @JoinColumn(name = "cod_servico", referencedColumnName = "id_servico", nullable = false)
+    private Servicos servico;
     @Column(name = "data")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data;
@@ -37,16 +40,11 @@ public class Agenda implements Serializable {
     private Date horario;
 
     public Agenda() {
-        this.usuarios = new Usuario();
     }
 
-    public Agenda(Date data, Date horario) {
-        this.data = data;
-        this.horario = horario;
-    }
-
-    public Agenda(Usuario usuarios, Date data, Date horario) {
+    public Agenda(Usuario usuarios, Servicos servico, Date data, Date horario) {
         this.usuarios = usuarios;
+        this.servico = servico;
         this.data = data;
         this.horario = horario;
     }
@@ -67,6 +65,14 @@ public class Agenda implements Serializable {
         this.usuarios = usuarios;
     }
 
+    public Servicos getServico() {
+        return servico;
+    }
+
+    public void setServico(Servicos servico) {
+        this.servico = servico;
+    }
+
     public Date getData() {
         return data;
     }
@@ -82,8 +88,6 @@ public class Agenda implements Serializable {
     public void setHorario(Date horario) {
         this.horario = horario;
     }
-
-    
     
     
 }

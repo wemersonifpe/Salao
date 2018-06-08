@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Salão</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menuusuario.xhtml"/>
+        <c:if test="${loginUsuario.usuarioLogado == null}">
+            <script>location.href = "loginusuario.xhtml";</script>
+        </c:if>
+        <div style="margin-left: 15%; margin-right: 15%; padding-top: 3%">
+            <p:panel style="border-color: #33ff99">
+            <h:form id="formAlteraUsu">
+                <p:growl life="4000" showDetail="true" showSummary="true" sticky="true"/>
+                <p:fieldset id="fielCadUsu" style="border-color: aqua" legend="Cadastrar Usuario">
+                    <h:panelGrid columns="2">
+                        
+                        <p:outputLabel value="Nome*: "/>
+                        <p:inputText value="#{loginUsuario.usuarioLogado.nome}" required="true"/>
+                        
+                        <p:outputLabel value="Cpf*: "/>
+                        <p:inputText value="#{loginUsuario.usuarioLogado.cpf}" required="true"/>
+                        
+                        <p:outputLabel value="Login*: "/>
+                        <p:inputText value="#{loginUsuario.usuarioLogado.login}" required="true"/>
+                        
+                        <p:outputLabel value="Senha*: " />
+                        <p:inputText value="#{loginUsuario.usuarioLogado.senha}" required="true"/>
+                        
+                    </h:panelGrid>
+                    <h:panelGrid columns="4">
+                        <p:commandButton value="Alterar" action="#{usuarioController.alterar(loginUsuario.usuarioLogado)}"/>
+                        <p:commandButton value="Voltar"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </h:form>
+            </p:panel>
+        </div>
+    </h:body>
+</html>
+

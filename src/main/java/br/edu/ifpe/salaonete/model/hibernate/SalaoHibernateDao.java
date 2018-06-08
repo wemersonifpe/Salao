@@ -117,7 +117,16 @@ public class SalaoHibernateDao implements SalaoDAO{
 
     @Override
     public boolean login(String login, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Salao> saloes = this.recuperarTodos();
+        
+        for(Salao sal : saloes){
+            if(sal.getLogin().equals(login)){
+                if(sal.getSenha().equals(senha)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     @Override

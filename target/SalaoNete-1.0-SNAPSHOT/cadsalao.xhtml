@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Salão</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menugeral.xhtml"/>
+        <div style="margin-left: 15%; margin-right: 15%; padding-top: 3%">
+            <p:panel style="border-color: #993300">
+            <h:form id="formCadSal">
+                <p:growl life="4000" showDetail="true" showSummary="true" sticky="true"/>
+                <p:fieldset id="fielCadSal" style="border-color: aqua" legend="Cadastrar Salão">
+                    <h:panelGrid columns="6">
+                        <p:outputLabel value="Nome*: "/>
+                        <p:inputText id="txtNome" value="#{salaoController.salao.nome}" required="true"
+                                     requiredMessage="Ta faltando o nome!" maxlength="30" size="20" />
+                        <p:message for="txtNome"/>
+                        
+                        <p:outputLabel value="Cnpj*: "/>
+                        <p:inputText id="txtCnpj" value="#{salaoController.salao.cnpj}" required="true"
+                                     requiredMessage="Ta faltando o cnpj!" maxlength="50" size="20"/>
+                        <p:message for="txtCnpj"/>
+                        
+                        <p:outputLabel value="Login*: "/>
+                        <p:inputText id="textLogin" value="#{salaoController.salao.login}" required="true"
+                                     requiredMessage="Ta faltando o login!" maxlength="20" size="20"/>
+                        <p:message for="textLogin"/>
+                        
+                        <p:outputLabel value="Senha*: " />
+                        <p:inputText id="txtSenha" value="#{salaoController.salao.senha}" required="true"
+                                     requiredMessage="Ta faltando a senha!" maxlength="20" size="20"/>
+                        <p:message for="txtSenha"/>
+                        
+                        <p:outputLabel value="Cidade*: "/>
+                        <p:inputText id="txtCidade" value="#{salaoController.salao.endereco.cidade}" required="true"
+                                     requiredMessage="Ta faltando a cidade!" maxlength="20" size="20"/>
+                        <p:message for="txtCidade"/>
+                        
+                        <p:outputLabel value="Rua*: "/>
+                        <p:inputText id="txtRua" value="#{salaoController.salao.endereco.rua}" required="true"
+                                     requiredMessage="Ta faltando a rua!" maxlength="20" size="20"/>
+                        <p:message for="txtRua"/>
+                        
+                        <p:outputLabel value="Bairro*: "/>
+                        <p:inputText id="txtBairro" value="#{salaoController.salao.endereco.bairro}" required="true"
+                                     requiredMessage="Ta faltando o bairro!" maxlength="20" size="20"/>
+                        <p:message for="txtBairro"/>
+                        
+                        <p:outputLabel value="Numero*: "/>
+                        <p:inputText id="txtNumero" value="#{salaoController.salao.endereco.numero}" required="true"
+                                     requiredMessage="Ta faltando o numero!" maxlength="20" size="20"/>
+                        <p:message for="txtNumero"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="4">
+                        <p:commandButton value="Cadastrar" action="#{salaoController.cadastrar()}" update=":formCadSal"/>
+                        <p:commandButton value="Voltar"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </h:form>
+            </p:panel>
+        </div>
+    </h:body>
+</html>
+

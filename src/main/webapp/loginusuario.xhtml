@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Salão</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menugeral.xhtml"/>
+        
+        <div style="margin-left: 15%; margin-right: 15%; padding-top: 3%">
+            <p:panel style="border-color: #33ff99">
+            <h:form id="formLogin">
+                <p:growl id="gro" sticky="true" showDetail="true" showSummary="true"/>
+                <h:panelGrid columns="1">
+                    <p:outputLabel value="Login*:"/>
+                    <p:inputText id="textLogin" binding="#{Login}" required="true" maxlength="20" requiredMessage="O Login precisa ser preenchido!"/>
+                    <br/>
+                    <p:outputLabel value="Senha*:"/>
+                    <p:password id="texteSenha" binding="#{Senha}" required="true" maxlength="10" requiredMessage="A Senha precisar ser preenchida!"/>
+                    <br/>
+                    <p:commandButton value="Logar" action="#{loginUsuario.realizarLogin(Login.value, Senha.value)}"/>
+                </h:panelGrid>
+            </h:form>
+            </p:panel>
+        </div>
+    </h:body>
+</html>
+

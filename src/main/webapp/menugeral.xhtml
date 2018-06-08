@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Salão</title>
+    </h:head>
+    <h:body>
+        <h:form id="formMenu">
+            <div class="header">
+                <h2 style="padding-top: 2%; height: 10%; text-align: center; vertical-align: middle; width: 100%;">ESPAÇO HEAR</h2>
+            </div>
+            <div style="padding: 15%; padding-top: 2%; margin-bottom: -15%">
+            <p:menubar style="background: #33ff99">
+                <p:menuitem value="Home" url="index.xhtml"/> 
+
+                <p:submenu label="usuario">
+                    <p:menuitem value="Cadastrar Usuario" url="cadusuario.xhtml"/>
+                    <p:menuitem value="Logar" url="loginusuario.xhtml"/>
+                </p:submenu>
+
+                <p:submenu label="salão">
+                    <p:menuitem value="Cadastrar Salão" url="cadsalao.xhtml"/>
+                    <p:menuitem value="Logar" url="loginsalao.xhtml"/>
+                </p:submenu>
+            </p:menubar>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
